@@ -16,7 +16,7 @@ Also this shouldn't be taken as primary solution. This is temporary hack to achi
 - If "Custom Javascript" text area is clear then just paste the provided code.
 
 
-<pre>
+ ```html
 
 <script type="text/javascript">
 
@@ -51,4 +51,4 @@ Also this shouldn't be taken as primary solution. This is temporary hack to achi
 
 </script>
 
-</pre>
+ ```
