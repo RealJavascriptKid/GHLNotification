@@ -18,20 +18,41 @@ Also this shouldn't be taken as primary solution. This is temporary hack to achi
 
  ```html
 
+
 <script type="text/javascript">
 
 (function(){
-    var  enable = true;
+    var  enable = true
     var  message = "Refer a client to get $500 off"
-    var  button = "Dismiss"
+    var  proceedButton = "Proceed"
+    var  dismissButton = "Dismiss"
+    var  proceedButtonURL = "https://google.com"
+    var  openURL_In_New_Tab = true
 
+    
     
     function ghlNotification(){
        
         var notification = document.getElementById('saadNotif');
         if(notification)
             return;
-        var html = '<div id="saadNotif" role="alert" class="alert --yellow" style="z-index: 99999;text-align: center;background-color: rgb(255 188 0);color: white;font-weight: bold;position: relative;display: block;top: 0;left: 0;"><div class="row"><div class="col" style="font-size: large;padding-top: 5px;">' + message + '</div><div class="col-2"><button id="saadsNotifBtn1" type="button" class="btn btn-secondary">' + button + '</button></div></div></div>';
+        var buttonsHtml = '',col_class = 'col-2';
+
+        if(proceedButton && proceedButtonURL){
+            var targetBlank = (openURL_In_New_Tab)?'target="_blank"':'';
+
+            buttonsHtml += '<a id="saadNotifProceedBtn" href="' + proceedButtonURL + '" ' + targetBlank + ' class="btn btn btn-success" style="margin-right: 11px;">' + proceedButton + '</a>'
+            if(dismissButton)
+                col_class = 'col-3'
+        }
+
+        if(dismissButton){
+            buttonsHtml += '<button id="saadNotifDismissBtn" type="button" class="btn btn-secondary">' + dismissButton + '</button>'
+            if(proceedButton)
+                col_class = 'col-3'
+        }
+
+        var html = '<div id="saadNotif" role="alert" class="alert --yellow" style="z-index: 99999;text-align: center;background-color: rgb(255 188 0);color: white;font-weight: bold;position: fixed;display: block;top: 0;left: 0;width: 100%;"><div class="row"><div class="col" style="font-size: large;padding-top: 5px;">' + message + '</div><div class="' + col_class + '">' + buttonsHtml + '</div></div></div>';
         
         var wrapper = document.body 
         var notif = document.createElement('div')
@@ -39,9 +60,13 @@ Also this shouldn't be taken as primary solution. This is temporary hack to achi
         var app = document.getElementById('app')
         wrapper.insertBefore(notif, app);
         setTimeout(function(){
-            document.getElementById("saadsNotifBtn1").addEventListener("click", function() {
-                document.getElementById('saadNotif').parentNode.remove()
-            });
+
+            if(dismissButton){
+                document.getElementById("saadNotifDismissBtn").addEventListener("click", function() {
+                    document.getElementById('saadNotif').parentNode.remove()
+                });
+            }           
+
         },50)
     }
     if(enable)
