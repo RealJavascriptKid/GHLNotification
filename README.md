@@ -1,9 +1,12 @@
 # GHLNotification
 Temporary hack to display notification in GHL
 
+## Instructions
 - Switch to Agency View
 - Goto Settings > Agency Settings
 - Scroll All the way down to where it says "Custom Javascript"
+- If there is any code already exists, make backup of it Just in Case and paste the following code after it
+- If "Custom Javascript" text area is clear then just paste the provided code.
 
 
 <pre>
