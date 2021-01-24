@@ -31,7 +31,15 @@ Also this shouldn't be taken as primary solution. This is temporary hack to achi
         var notification = document.getElementById('saadNotif');
         if(notification)
             return;
-        var html = '<div id="saadNotif" role="alert" class="alert --yellow" style="z-index: 99999;text-align: center;background-color: rgb(255 188 0);color: white;font-weight: bold;position: relative;display: block;top: 0;left: 0;"><div class="row"><div class="col" style="font-size: large;padding-top: 5px;">' + message + '</div><div class="col-2"><button id="saadsNotifBtn1" type="button" class="btn btn-secondary">' + button + '</button></div></div></div>';
+        var html = '<div id="saadNotif" role="alert"'
+                 + 'class="alert --yellow" style="z-index: 99999;text-align: 
+                 + 'center;background-color: rgb(255 188 0);color: white;font-weight: bold;
+                 + 'position: relative;display: block;top: 0;left: 0;">'
+                 + '<div class="row"><div class="col" style="font-size: large;padding-top: 5px;">' 
+                 + message + '</div>'
+                 + '<div class="col-2">'
+                 + '<button id="saadsNotifBtn1" type="button" class="btn btn-secondary">' 
+                 + button + '</button></div></div></div>';
         
         var wrapper = document.body 
         var notif = document.createElement('div')
