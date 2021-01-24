@@ -1,5 +1,12 @@
 # GHLNotification
-Temporary hack to display notification in GHL
+Temporary hack to display notification in GHL.
+
+# DISCLAIMER
+I won't be responsible for any damage it caused. I am sharing it just for the benefit of others. I am myself going to use the same code for my own GHL Agency. Also I am Developer so I understand playing with code.
+
+Also this shouldn't be taken as primary solution. This is temporary hack to achieve what you want. I would definately use the official solution if/when provided by GHL.
+
+
 
 ## Instructions
 - Switch to Agency View
